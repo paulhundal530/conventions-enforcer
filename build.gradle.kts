@@ -1,5 +1,3 @@
-import com.gradle.publish.PluginBundleExtension
-
 plugins {
     kotlin("jvm") version "2.2.0"
     id("java-gradle-plugin")
@@ -9,7 +7,7 @@ plugins {
 }
 
 group = "io.github.phundal"
-version = "1.0-SNAPSHOT"
+version = "0.0.1"
 
 repositories {
     mavenCentral()
@@ -34,31 +32,18 @@ tasks.test {
 
 /** Plugin definition **/
 gradlePlugin {
+    website = "https://github.com/paulhundal530/conventions-enforcer"
+    vcsUrl = "https://github.com/paulhundal530/conventions-enforcer.git"
     plugins {
-        register("conventionsEnforcer") {
-            id = "conventions.enforcer"
+        create("conventionsEnforcer") {
+            id = "io.github.phundal.conventions.enforcer"
             implementationClass = "conventions.enforcer.ConventionsEnforcerPlugin"
             displayName = "Conventions Enforcer"
             description = "A settings plugin to enforce plugin and dependency conventions."
-            tags.set(listOf("gradle", "plugin", "conventions", "enforcer", "settings"))
+            tags.set(listOf("conventions", "enforcer", "settings"))
         }
     }
 }
-
-/** Gradle Plugin Portal metadata **/
-//pluginBundle {
-//    website = "https://github.com/paulhundal530/conventions-enforcer"
-//    vcsUrl = "https://github.com/paulhundal530/conventions-enforcer"
-//    tags = listOf("gradle", "plugin", "conventions", "enforcer", "settings")
-//
-//    plugins {
-//        create("conventionsEnforcer") {
-//            id = "conventions.enforcer"
-//            displayName = "Conventions Enforcer"
-//            description = "A Gradle plugin to enforce plugin and dependency conventions."
-//        }
-//    }
-//}
 
 /** Publishing step **/
 publishing {
