@@ -42,7 +42,7 @@ pluginManagement {
 }
 
 plugins {
-    id("conventions.enforcer") version "<current-version>"
+    id("io.github.phundal.conventions.enforcer") version "<current-version>"
 }
 
 conventionsEnforcer {
