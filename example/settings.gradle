@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id 'conventions.enforcer' version '1.0-SNAPSHOT'
+}
+
+conventionsEnforcer {
+    rules {
+        allowedPlugins = ['java', 'kotlin']
+        allowedClosures = ['dependencies']
+        bannedDependencies = ['com.squareup.retrofit2:retrofit']
+    }
+
+    excludedBuildFiles = [':legacy:build.gradle']
+    shouldFailOnViolation = false
+}
